@@ -3,7 +3,7 @@
 
 int main()
 {
-    int i, j, bfr;
+    int i, j;
     char array[9][9] = {};
 
     for (i = 0; i < 9; i++) {
@@ -33,6 +33,7 @@ int main()
     array[0][6] = 'b';
     array[0][7] = 'n';
     array[0][8] = 'r';
+    array[8][0] = ' ';
 
     for (i = 1; i < 9; i++) {
         array[7][i] = toupper(array[0][i]);
