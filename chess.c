@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h> 
+#include "pawn.h"
 
 void display(char board[9][9])
 {
@@ -14,16 +15,17 @@ void display(char board[9][9])
 
 int main()
 {
-    int i, j;
-    char board[9][9] = {}, turn[6] = {};
+    int i, j, bwin = 0, wwin = 0, asciinumber = 56, asciiletter = 96;
+    int pawnp[9] = {}, pawnP[9] = {};
+    char board[9][9] = {};
 
     for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
             if ((j == 0) & (i != 8)) {
-                board[i][j] = (56 - i);
+                board[i][j] = (asciinumber - i);
             }
             if ((i == 8) & (j != 0)) {
-                board[i][j] = (96 + j);
+                board[i][j] = (asciiletter + j);
             }
         }
     }
@@ -56,20 +58,32 @@ int main()
         }
     }
 
-    display(board);
+    // display(board);
 
-    scanf("%s", turn);
+    printf("Press any botton to start\n");
 
-    if((board[(56 - turn[1])][(turn[0] - 96)] == 'P') && (turn[4] - turn[1] < 3)) {
-        board[(56 - turn[1])][(turn[0] - 96)] = ' ';
-        board[(56 - turn[4])][(turn[3] - 96)] = 'P';
+    while((wwin + bwin) == 0) {
+        pawn(board, pawnp, pawnP);
+
+        display(board);
+
+        wwin = 1;
+        bwin = 1;
+
+        for (i = 0; i < 9; i++) {
+            for (j = 1; j < 9; j++) {
+                if(board[i][j] == 'k') 
+                    wwin = 0;
+                if(board[i][j] == 'K')
+                    bwin = 0;
+            }
+        }    
     }
-    if((board[(56 - turn[1])][(turn[0] - 96)] == 'p') && (turn[1] - turn[4] < 3)) {
-        board[(56 - turn[1])][(turn[0] - 96)] = ' ';
-        board[(56 - turn[4])][(turn[3] - 96)] = 'p';
-    }
 
-    display(board);
+    if(wwin == 1)
+        printf("White wins\n");
+    else   
+        printf("Black wins\n");
 
     return 0;
 }
