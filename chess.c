@@ -15,7 +15,7 @@ void display(char board[9][9])
 
 int main()
 {
-    int i, j, ch;
+    int i, j, bwin = 0, wwin = 0;
     int pawnp[9] = {}, pawnP[9] = {};
     char board[9][9] = {};
 
@@ -62,12 +62,28 @@ int main()
 
     printf("Press any botton to start\n");
 
-    while((ch = getchar()) != EOF) {
+    while((wwin + bwin) == 0) {
+        pawn(board, pawnp, pawnP);
 
-    pawn(board, pawnp, pawnP);
+        display(board);
 
-    display(board);
+        wwin = 1;
+        bwin = 1;
+        
+        for (i = 0; i < 9; i++) {
+            for (j = 1; j < 9; j++) {
+                if(board[i][j] == 'k') 
+                    wwin = 0;
+                if(board[i][j] == 'K')
+                    bwin = 0;
+            }
+        }    
     }
+
+    if(wwin == 1)
+        printf("White wins\n");
+    else   
+        printf("Black wins\n");
 
     return 0;
 }
