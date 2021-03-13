@@ -15,17 +15,17 @@ void display(char board[9][9])
 
 int main()
 {
-    int i, j, bwin = 0, wwin = 0;
+    int i, j, bwin = 0, wwin = 0, asciinumber = 56, asciiletter = 96;
     int pawnp[9] = {}, pawnP[9] = {};
     char board[9][9] = {};
 
     for (i = 0; i < 9; i++) {
         for (j = 0; j < 9; j++) {
             if ((j == 0) & (i != 8)) {
-                board[i][j] = (56 - i);
+                board[i][j] = (asciinumber - i);
             }
             if ((i == 8) & (j != 0)) {
-                board[i][j] = (96 + j);
+                board[i][j] = (asciiletter + j);
             }
         }
     }
@@ -69,7 +69,7 @@ int main()
 
         wwin = 1;
         bwin = 1;
-        
+
         for (i = 0; i < 9; i++) {
             for (j = 1; j < 9; j++) {
                 if(board[i][j] == 'k') 
