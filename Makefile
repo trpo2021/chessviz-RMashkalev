@@ -8,3 +8,5 @@ libfigure.a: pawn.o
 	ar rcs libfigure.a pawn.o
 pawn.o: pawn.c
 	gcc -Wall -Werror -c -o pawn.o pawn.c
+clean:
+	rm *.o chess
