@@ -1,12 +1,13 @@
-all: chess
+all: bin/chess
 	
-chess: chess.o libfigure.a
-	gcc -Wall -Werror -o chess chess.o pawn.o
-chess.o: chess.c
-	gcc -Wall -Werror -c -o chess.o chess.c
-libfigure.a: pawn.o
-	ar rcs libfigure.a pawn.o
-pawn.o: pawn.c
-	gcc -Wall -Werror -c -o pawn.o pawn.c
+bin/chess: obj/chess.o obj/libfigure.a
+	gcc -Wall -Werror -o bin/chess obj/chess.o obj/pawn.o
+obj/chess.o: src/chess.c
+	gcc -Wall -Werror -c -o obj/chess.o src/chess.c
+obj/libfigure.a: obj/pawn.o
+	ar rcs obj/libfigure.a obj/pawn.o
+obj/pawn.o: src/pawn.c
+	gcc -Wall -Werror -c -o obj/pawn.o src/pawn.c
+.PHONY : clean
 clean:
-	rm *.o chess
+	rm -rf obj/*.o obj/*.a bin/chess
