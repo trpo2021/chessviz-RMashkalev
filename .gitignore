@@ -1,4 +1,3 @@
-chess.o
-chess
-a.out
-lab
+bin/*
+obj/*.o
+obj/*.a
