@@ -66,6 +66,14 @@ int main()
         char turn[6] = {};
         scanf("%s", turn);
 
+        j = 1;
+        if((turn[0] > 96) && (turn[0] < 105))
+            if((turn[3] > 96) && (turn[3] < 105))
+                if((turn[1] > 48) && (turn[1] < 57))
+                    if((turn[4] > 48) && (turn[4] < 57))
+                        j = 0;
+        if(j == 0)
+        {
         switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)])
         {
             case 82:
@@ -84,6 +92,39 @@ int main()
                 pawn(board, pawnp, pawnP, turn);
                 i = wincondition(board);
                 break;
+            case 78:
+                knightmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 110:
+                knightmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 66:
+                bishopmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 98:
+                bishopmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 81:
+                queenmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 113:
+                queenmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 75:
+                kingmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 107:
+                kingmove(board, turn);
+                i = wincondition(board);
+                break;
+        }
         }
         printf("\n");
     }

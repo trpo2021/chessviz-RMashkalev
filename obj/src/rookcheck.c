@@ -14,9 +14,9 @@ int rookcheck(char board[9][9], char turn[6])
             }
         }
     if((turn[0] == turn[3]) && (turn[4] < turn[1]))
-        for(i = (asciinumber - turn[1]); i < (asciinumber - turn[4]) - 1; i++)
+        for(i = (asciinumber - turn[1]) + 1; i < (asciinumber - turn[4]); i++)
         {
-            if(board[(asciinumber - turn[1]) - i][(turn[0] - asciiletter)] != ' ')
+            if(board[(asciinumber - turn[1]) + i][(turn[0] - asciiletter)] != ' ')
             {
                 check = 1;
             }
