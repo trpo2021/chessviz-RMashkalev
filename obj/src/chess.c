@@ -15,7 +15,7 @@ void display(char board[9][9])
 
 int main()
 {
-    int i, j, bwin = 0, wwin = 0, asciinumber = 56, asciiletter = 96;
+    int i, j, asciinumber = 56, asciiletter = 96;
     int pawnp[9] = {}, pawnP[9] = {};
     char board[9][9] = {};
 
@@ -60,30 +60,78 @@ int main()
 
     // display(board);
 
-    printf("Press any botton to start\n");
-
-    while((wwin + bwin) == 0) {
-        pawn(board, pawnp, pawnP);
-
+    i = 0;
+    while(i == 0) {
         display(board);
+        char turn[6] = {};
+        scanf("%s", turn);
 
-        wwin = 1;
-        bwin = 1;
-
-        for (i = 0; i < 9; i++) {
-            for (j = 1; j < 9; j++) {
-                if(board[i][j] == 'k') 
-                    wwin = 0;
-                if(board[i][j] == 'K')
-                    bwin = 0;
-            }
-        }    
+        j = 1;
+        if((turn[0] > 96) && (turn[0] < 105))
+            if((turn[3] > 96) && (turn[3] < 105))
+                if((turn[1] > 48) && (turn[1] < 57))
+                    if((turn[4] > 48) && (turn[4] < 57))
+                        j = 0;
+        if(j == 0)
+        {
+        switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)])
+        {
+            case 82:
+                rookmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 114:
+                rookmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 112:
+                pawn(board, pawnp, pawnP, turn);
+                i = wincondition(board);
+                break;
+            case 80:
+                pawn(board, pawnp, pawnP, turn);
+                i = wincondition(board);
+                break;
+            case 78:
+                knightmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 110:
+                knightmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 66:
+                bishopmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 98:
+                bishopmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 81:
+                queenmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 113:
+                queenmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 75:
+                kingmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 107:
+                kingmove(board, turn);
+                i = wincondition(board);
+                break;
+        }
+        }
+        printf("\n");
     }
 
-    if(wwin == 1)
+    if(i == 1)
         printf("White wins\n");
-    else   
+    else  
         printf("Black wins\n");
-
     return 0;
 }
