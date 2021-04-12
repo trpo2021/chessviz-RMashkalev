@@ -128,7 +128,7 @@ int main()
         }
         printf("\n");
     }
-
+    display(board);
     if(i == 1)
         printf("White wins\n");
     else  
