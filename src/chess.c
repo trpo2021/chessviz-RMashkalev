@@ -72,56 +72,55 @@ int main()
             j = 0;
 
         if(j == 0) {
-            switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)])
-            {
-                case 82:
-                    rookmove(board, turn);
-                    i = wincondition(board);
-                    break;
-                case 114:
-                    rookmove(board, turn);
-                    i = wincondition(board);
-                    break;
-                case 112:
-                    pawn(board, pawnp, pawnP, turn);
-                    i = wincondition(board);
-                    break;
-                case 80:
-                    pawn(board, pawnp, pawnP, turn);
-                    i = wincondition(board);
-                    break;
-                case 78:
-                    knightmove(board, turn);
-                    i = wincondition(board);
-                    break;
-                case 110:
-                    knightmove(board, turn);
-                    i = wincondition(board);
-                    break;
-                case 66:
-                    bishopmove(board, turn);
-                    i = wincondition(board);
-                    break;
-                case 98:
-                    bishopmove(board, turn);
-                    i = wincondition(board);
-                    break;
-                case 81:
-                    queenmove(board, turn);
-                    i = wincondition(board);
-                    break;
-                case 113:
-                    queenmove(board, turn);
-                    i = wincondition(board);
-                    break;
-                case 75:
-                    kingmove(board, turn);
-                    i = wincondition(board);
-                    break;
-                case 107:
-                    kingmove(board, turn);
-                    i = wincondition(board);
-                    break;
+            switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)]) {
+            case 82:
+                rookmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 114:
+                rookmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 112:
+                pawn(board, pawnp, pawnP, turn);
+                i = wincondition(board);
+                break;
+            case 80:
+                pawn(board, pawnp, pawnP, turn);
+                i = wincondition(board);
+                break;
+            case 78:
+                knightmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 110:
+                knightmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 66:
+                bishopmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 98:
+                bishopmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 81:
+                queenmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 113:
+                queenmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 75:
+                kingmove(board, turn);
+                i = wincondition(board);
+                break;
+            case 107:
+                kingmove(board, turn);
+                i = wincondition(board);
+                break;
             }
         }
         printf("\n");
@@ -129,7 +128,7 @@ int main()
     display(board);
     if (i == 1)
         printf("White wins\n");
-    else  
-        printf("Black wins\n");
+        else  
+            printf("Black wins\n");
     return 0;
 }
