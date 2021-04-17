@@ -14,6 +14,6 @@ int kingcheck(char board[9][9], char turn[6])
         return 0;
     } else if ((abs(turn[0] - turn[3])) == (abs(turn[1] - turn[4]))) {
         return 0;
-    } else 
+    } else
         return -1;
 }
