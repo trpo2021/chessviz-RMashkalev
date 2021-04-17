@@ -7,14 +7,12 @@ int wincondition(char board[9][9])
 
     for (i = 0; i < 9; i++) {
         for (j = 1; j < 9; j++) {
-            if(board[i][j] == 'k') 
+            if (board[i][j] == 'k') 
                 wwin = 0;
-            if(board[i][j] == 'K')
+            if (board[i][j] == 'K')
                 bwin = 0;
         }
-    }    
-    
-
+    }
     if (wwin == 1)
         return 1;
     else if (bwin == 1)  

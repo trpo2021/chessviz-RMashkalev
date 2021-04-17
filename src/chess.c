@@ -33,7 +33,6 @@ int main()
     for (i = 1; i < 9; i++) {
         board[1][i] = 'p';
     }
-    
     for (i = 1; i < 9; i++) {
         board[6][i] = 'P';
     }
@@ -58,7 +57,7 @@ int main()
         }
     }
 
-    FILE *file = NULL;
+    FILE* file = NULL;
     file = fopen("src/turns.txt", "r");
 
     i = 0;
@@ -69,68 +68,66 @@ int main()
         fgets(turn, 7, file);
 
         j = 1;
-        
         if (turncheck(turn) == 0)
             j = 0;
 
-        if(j == 0)
-        {
-        switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)])
-        {
-            case 82:
-                rookmove(board, turn);
-                i = wincondition(board);
-                break;
-            case 114:
-                rookmove(board, turn);
-                i = wincondition(board);
-                break;
-            case 112:
-                pawn(board, pawnp, pawnP, turn);
-                i = wincondition(board);
-                break;
-            case 80:
-                pawn(board, pawnp, pawnP, turn);
-                i = wincondition(board);
-                break;
-            case 78:
-                knightmove(board, turn);
-                i = wincondition(board);
-                break;
-            case 110:
-                knightmove(board, turn);
-                i = wincondition(board);
-                break;
-            case 66:
-                bishopmove(board, turn);
-                i = wincondition(board);
-                break;
-            case 98:
-                bishopmove(board, turn);
-                i = wincondition(board);
-                break;
-            case 81:
-                queenmove(board, turn);
-                i = wincondition(board);
-                break;
-            case 113:
-                queenmove(board, turn);
-                i = wincondition(board);
-                break;
-            case 75:
-                kingmove(board, turn);
-                i = wincondition(board);
-                break;
-            case 107:
-                kingmove(board, turn);
-                i = wincondition(board);
-                break;
-        }
+        if(j == 0) {
+            switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)])
+            {
+                case 82:
+                    rookmove(board, turn);
+                    i = wincondition(board);
+                    break;
+                case 114:
+                    rookmove(board, turn);
+                    i = wincondition(board);
+                    break;
+                case 112:
+                    pawn(board, pawnp, pawnP, turn);
+                    i = wincondition(board);
+                    break;
+                case 80:
+                    pawn(board, pawnp, pawnP, turn);
+                    i = wincondition(board);
+                    break;
+                case 78:
+                    knightmove(board, turn);
+                    i = wincondition(board);
+                    break;
+                case 110:
+                    knightmove(board, turn);
+                    i = wincondition(board);
+                    break;
+                case 66:
+                    bishopmove(board, turn);
+                    i = wincondition(board);
+                    break;
+                case 98:
+                    bishopmove(board, turn);
+                    i = wincondition(board);
+                    break;
+                case 81:
+                    queenmove(board, turn);
+                    i = wincondition(board);
+                    break;
+                case 113:
+                    queenmove(board, turn);
+                    i = wincondition(board);
+                    break;
+                case 75:
+                    kingmove(board, turn);
+                    i = wincondition(board);
+                    break;
+                case 107:
+                    kingmove(board, turn);
+                    i = wincondition(board);
+                    break;
+            }
         }
         printf("\n");
     }
     display(board);
-    if(i == 1)
+    if (i == 1)
         printf("White wins\n");
     else  
         printf("Black wins\n");
