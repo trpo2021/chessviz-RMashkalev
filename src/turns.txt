@@ -1,0 +1,2 @@
+a2-a4 a1-a3 a3-e6 e6-e7 e7-e8
+e2-e4 e4-e5 e5-e6 e6-d7 d7-e8
