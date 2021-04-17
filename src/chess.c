@@ -71,7 +71,7 @@ int main()
         if (turncheck(turn) == 0)
             j = 0;
 
-        if(j == 0) {
+        if (j == 0) {
             switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)]) {
             case 82:
                 rookmove(board, turn);
