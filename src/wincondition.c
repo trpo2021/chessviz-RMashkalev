@@ -1,7 +1,6 @@
 #include "pawn.h"
 #include <stdio.h>
 
-
 int wincondition(char board[9][9])
 {
     int wwin = 1, bwin = 1, i, j;
