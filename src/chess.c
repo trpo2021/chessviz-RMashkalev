@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <ctype.h> 
 #include "pawn.h"
+#include <ctype.h>
+#include <stdio.h>
 
 void display(char board[9][9])
 {
@@ -33,7 +33,6 @@ int main()
     for (i = 1; i < 9; i++) {
         board[1][i] = 'p';
     }
-    
     for (i = 1; i < 9; i++) {
         board[6][i] = 'P';
     }
@@ -58,24 +57,22 @@ int main()
         }
     }
 
-    // display(board);
+    FILE* file = NULL;
+    file = fopen("src/turns.txt", "r");
 
     i = 0;
-    while(i == 0) {
+    while (i == 0) {
         display(board);
         char turn[6] = {};
-        scanf("%s", turn);
+        // scanf("%s", turn);
+        fgets(turn, 7, file);
 
         j = 1;
-        if((turn[0] > 96) && (turn[0] < 105))
-            if((turn[3] > 96) && (turn[3] < 105))
-                if((turn[1] > 48) && (turn[1] < 57))
-                    if((turn[4] > 48) && (turn[4] < 57))
-                        j = 0;
-        if(j == 0)
-        {
-        switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)])
-        {
+        if (turncheck(turn) == 0)
+            j = 0;
+
+        if (j == 0) {
+            switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)]) {
             case 82:
                 rookmove(board, turn);
                 i = wincondition(board);
@@ -124,14 +121,14 @@ int main()
                 kingmove(board, turn);
                 i = wincondition(board);
                 break;
-        }
+            }
         }
         printf("\n");
     }
     display(board);
-    if(i == 1)
+    if (i == 1)
         printf("White wins\n");
-    else  
+    else
         printf("Black wins\n");
     return 0;
 }
