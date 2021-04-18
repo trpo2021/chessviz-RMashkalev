@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "pawn.h"
+#include <stdio.h>
 
 int knightcheck(char board[9][9], char turn[6])
 {

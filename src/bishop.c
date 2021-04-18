@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include "pawn.h"
+#include <stdlib.h>
 
 void bishopmove(char board[9][9], char turn[6])
 {

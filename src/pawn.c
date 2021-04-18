@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "pawn.h"
+#include <stdio.h>
 
 void pawn(char board[9][9], int pawnp[9], int pawnP[9], char turn[6])
 {
