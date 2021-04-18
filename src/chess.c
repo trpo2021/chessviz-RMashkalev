@@ -1,6 +1,6 @@
 #include "pawn.h"
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
 void display(char board[9][9])
 {
