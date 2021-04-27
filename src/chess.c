@@ -67,11 +67,7 @@ int main()
         // scanf("%s", turn);
         fgets(turn, 7, file);
 
-        j = 1;
-        if (turncheck(turn) == 0)
-            j = 0;
-
-        if (j == 0) {
+        if (turncheck(turn) == 0) {
             switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)]) {
             case 82:
                 rookmove(board, turn);
