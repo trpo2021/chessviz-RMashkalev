@@ -37,8 +37,10 @@ obj/turncheck.o: src/turncheck.c
 obj/wincondition.o: src/wincondition.c
 	gcc -Wall -I -Werror -c -o obj/wincondition.o src/wincondition.c
 
-test: test/mytests.o test/testmain.o test/libfigure.a
-	gcc -Wall -I -Werror -o test.bin test/mytests.o test/testmain.o test/libfigure.a
+test: bin/test
+
+bin/test: test/mytests.o test/testmain.o test/libfigure.a
+	gcc -Wall -I -Werror -o bin/test.bin test/mytests.o test/testmain.o test/libfigure.a
 test/testmain.o: test/main.c
 	gcc -Wall -I -Werror -c -o test/testmain.o test/main.c
 test/mytests.o: test/mytests.c
