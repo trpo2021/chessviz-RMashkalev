@@ -16,6 +16,8 @@ void queenmove(char board[9][9], char turn[6]);
 
 void kingmove(char board[9][9], char turn[6]);
 
+void board_build(char board[9][9]);
+
 int turncheck(char turn[6]);
 
 int kingcheck(char board[9][9], char turn[6]);
