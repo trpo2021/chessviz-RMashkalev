@@ -2,7 +2,6 @@
 
 #define CTEST_MAIN
 
-// uncomment lines below to enable/disable features. See README.md for details
 #define CTEST_SEGFAULT
 #define CTEST_COLOR_OK
 
