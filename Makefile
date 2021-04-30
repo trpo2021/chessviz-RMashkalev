@@ -50,4 +50,4 @@ test/mytests.o: test/mytests.c
 
 .PHONY : clean
 clean:
-	rm -rf obj/*.o obj/*.a bin/chess
+	rm -rf obj/*.o obj/*.a bin/chess test/*.o test/*.a
