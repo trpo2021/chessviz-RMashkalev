@@ -20,15 +20,15 @@ int main()
 
     board_build(board);
 
-    // FILE* file = NULL;
-    // file = fopen("src/turns.txt", "r");
+    FILE* file = NULL;
+    file = fopen("src/turns.txt", "r");
 
     i = 0;
     while (i == 0) {
         display(board);
         char turn[6] = {};
-        scanf("%s", turn);
-        // fgets(turn, 7, file);
+        // scanf("%s", turn);
+        fgets(turn, 7, file);
 
         if (turncheck(turn) == 0) {
             switch (board[(asciinumber - turn[1])][(turn[0] - asciiletter)]) {
