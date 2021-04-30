@@ -110,3 +110,81 @@ CTEST(figure_test, rookcheck_test6)
     const int result = rookcheck(board, turn);
     ASSERT_EQUAL(expected, result);
 }
+
+CTEST(figure_test, knightcheck_test1)
+{
+    const int expected = 0;
+    char board[9][9];
+    char turn[6] = {97,49,45,96,51};
+    board_build(board);
+
+    const int result = knightcheck(board, turn);
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(figure_test, knightcheck_test2)
+{
+    const int expected = 0;
+    char board[9][9];
+    char turn[6] = {97,49,45,98,51};
+    board_build(board);
+
+    const int result = knightcheck(board, turn);
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(figure_test, bishopcheck_test1)
+{
+    const int expected = 0;
+    char board[9][9];
+    int pawnp[9] = {}, pawnP[9] = {};
+    char turn[6] = {98,50,45,98,52};
+    board_build(board);
+    pawn(board, pawnp, pawnP, turn);
+
+    turn[0] = 99;
+    turn[1] = 49;
+    turn[3] = 97;
+    turn[4] = 51;
+    const int result = bishopcheck(board, turn);
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(figure_test, bishopcheck_test2)
+{
+    const int expected = -1;
+    char board[9][9];
+    char turn[6] = {99,49,45,97,51};
+    board_build(board);
+
+    const int result = bishopcheck(board, turn);
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(figure_test, kingcheck_test1)
+{
+    const int expected = 0;
+    char board[9][9];
+    int pawnp[9] = {}, pawnP[9] = {};
+    char turn[6] = {101,50,45,101,52};
+    board_build(board);
+    pawn(board, pawnp, pawnP, turn);
+
+    turn[0] = 101;
+    turn[1] = 49;
+    turn[3] = 101;
+    turn[4] = 50;
+    const int result = kingcheck(board, turn);
+    ASSERT_EQUAL(expected, result);
+}
+
+CTEST(figure_test, kingcheck_test2)
+{
+    const int expected = 0;
+    char board[9][9];
+    char turn[6] = {101,49,45,101,50};
+    board_build(board);
+
+    const int result = kingcheck(board, turn);
+    ASSERT_EQUAL(expected, result);
+}
