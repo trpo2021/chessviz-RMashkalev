@@ -1,4 +1,4 @@
-#include "ctest.h"
+#include "../thirdparty/ctest.h"
 #include "../src/pawn.h"
 
 CTEST(test, turn_test1)
