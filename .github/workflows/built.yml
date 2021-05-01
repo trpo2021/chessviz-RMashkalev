@@ -17,3 +17,5 @@ jobs:
 
       - name: Chess test
         run: make test
+
+      

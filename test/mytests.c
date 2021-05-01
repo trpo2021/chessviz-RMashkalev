@@ -1,5 +1,5 @@
-#include "../thirdparty/ctest.h"
-#include "../src/pawn.h"
+#include "ctest.h"
+#include "pawn.h"
 
 CTEST(test, turn_test1)
 {
