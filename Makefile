@@ -4,8 +4,6 @@ bin/chess: obj/chess.o obj/libfigure.a
 	gcc -Wall -I src -Werror -o bin/chess obj/chess.o obj/libfigure.a
 obj/chess.o: src/chess.c
 	gcc -Wall -I src -Werror -c -o obj/chess.o src/chess.c
-test/libfigure.a: obj/pawn.o obj/pawnattack.o obj/pawnmove.o obj/rookcheck.o obj/rook.o obj/wincondition.o obj/knight.o obj/knightcheck.o obj/bishop.o obj/bishopcheck.o obj/queen.o obj/king.o obj/kingcheck.o obj/turncheck.o obj/board_builder.o
-	ar rcs test/libfigure.a obj/pawn.o obj/pawnattack.o obj/pawnmove.o obj/rookcheck.o obj/rook.o obj/knight.o obj/knightcheck.o obj/wincondition.o obj/bishop.o obj/bishopcheck.o obj/queen.o obj/king.o obj/kingcheck.o obj/turncheck.o obj/board_builder.o
 obj/libfigure.a: obj/pawn.o obj/pawnattack.o obj/pawnmove.o obj/rookcheck.o obj/rook.o obj/wincondition.o obj/knight.o obj/knightcheck.o obj/bishop.o obj/bishopcheck.o obj/queen.o obj/king.o obj/kingcheck.o obj/turncheck.o obj/board_builder.o
 	ar rcs obj/libfigure.a obj/pawn.o obj/pawnattack.o obj/pawnmove.o obj/rookcheck.o obj/rook.o obj/knight.o obj/knightcheck.o obj/wincondition.o obj/bishop.o obj/bishopcheck.o obj/queen.o obj/king.o obj/kingcheck.o obj/turncheck.o obj/board_builder.o
 obj/pawn.o: src/pawn.c 
@@ -41,8 +39,8 @@ obj/board_builder.o: src/board_builder.c
 
 test: bin/test
 
-bin/test: test/mytests.o test/testmain.o test/libfigure.a
-	gcc -Wall -I thirdparty -I src -Werror -o bin/test.bin test/mytests.o test/testmain.o test/libfigure.a
+bin/test: test/mytests.o test/testmain.o obj/libfigure.a
+	gcc -Wall -I thirdparty -I src -Werror -o bin/test.bin test/mytests.o test/testmain.o obj/libfigure.a
 test/testmain.o: test/main.c
 	gcc -Wall -I thirdparty -I src -Werror -c -o test/testmain.o test/main.c
 test/mytests.o: test/mytests.c
